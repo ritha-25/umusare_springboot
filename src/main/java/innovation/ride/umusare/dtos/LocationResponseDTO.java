@@ -1,0 +1,15 @@
+package innovation.ride.umusare.dtos;
+
+import innovation.ride.umusare.entity.enums.LocationType;
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
+public class LocationResponseDTO {
+    private String locationId;
+    private String locationName;
+    private String locationCode;
+    private LocationType type;
+    private String parentLocationId;
+}
