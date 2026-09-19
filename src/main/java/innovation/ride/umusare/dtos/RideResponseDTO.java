@@ -1,4 +1,4 @@
-package innovation.ride.umusare.dto;
+package innovation.ride.umusare.dtos;
 
 import innovation.ride.umusare.entity.enums.RideStatus;
 import lombok.*;
