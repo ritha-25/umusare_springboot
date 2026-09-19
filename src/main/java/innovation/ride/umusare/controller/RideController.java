@@ -1,10 +1,10 @@
 package innovation.ride.umusare.controller;
 
-import com.umusare.dto.ConfirmRideRequestDTO;
-import com.umusare.dto.RideMatchRequestDTO;
-import com.umusare.dto.RideMatchResponseDTO;
-import com.umusare.dto.RideResponseDTO;
-import com.umusare.service.RideService;
+import innovation.ride.umusare.dtos.ConfirmRideRequestDTO;
+import innovation.ride.umusare.dtos.RideMatchRequestDTO;
+import innovation.ride.umusare.dtos.RideMatchResponseDTO;
+import innovation.ride.umusare.dtos.RideResponseDTO;
+import innovation.ride.umusare.service.RideService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -13,13 +13,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-/**
- * Two-step ride flow (Option C matching):
- *   1. POST /find-match   -> system proposes one driver + price, nothing saved yet
- *   2. POST /             -> passenger confirms that driver, Ride is created (status REQUESTED)
- * Calling /find-match again with the previous driverId in excludedDriverIds
- * gets the next-best candidate instead of repeating the same one.
- */
+
 @RestController
 @RequestMapping("/api/passengers/{passengerId}/rides")
 @RequiredArgsConstructor
@@ -42,7 +36,6 @@ public class RideController {
                 .body(rideService.confirmRide(passengerId, request));
     }
 
-    /** FR009: allowed only before the ride is accepted/started - enforced in the service layer. */
     @DeleteMapping("/{rideId}")
     public ResponseEntity<Void> cancelRide(
             @PathVariable String passengerId,

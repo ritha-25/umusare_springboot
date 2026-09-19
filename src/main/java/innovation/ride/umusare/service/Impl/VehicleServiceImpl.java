@@ -1,7 +1,7 @@
 package innovation.ride.umusare.service.Impl;
 
-import innovation.ride.umusare.dto.VehicleRequestDTO;
-import innovation.ride.umusare.dto.VehicleResponseDTO;
+import innovation.ride.umusare.dtos.VehicleRequestDTO;
+import innovation.ride.umusare.dtos.VehicleResponseDTO;
 import innovation.ride.umusare.entity.Passenger;
 import innovation.ride.umusare.entity.Vehicle;
 import innovation.ride.umusare.exception.InvalidRideOperationException;

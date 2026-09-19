@@ -1,7 +1,7 @@
 package innovation.ride.umusare.controller;
 
-import innovation.ride.umusare.dto.VehicleRequestDTO;
-import innovation.ride.umusare.dto.VehicleResponseDTO;
+import innovation.ride.umusare.dtos.VehicleRequestDTO;
+import innovation.ride.umusare.dtos.VehicleResponseDTO;
 import innovation.ride.umusare.service.VehicleService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;

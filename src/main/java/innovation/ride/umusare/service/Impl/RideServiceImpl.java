@@ -1,6 +1,6 @@
 package innovation.ride.umusare.service.Impl;
 
-import innovation.ride.umusare.dto.*;
+import innovation.ride.umusare.dtos.*;
 import innovation.ride.umusare.entity.*;
 import innovation.ride.umusare.entity.enums.RideStatus;
 import innovation.ride.umusare.entity.enums.VehicleType;

@@ -1,17 +1,14 @@
-package innovation.ride.umusare.dto;
+package innovation.ride.umusare.dtos;
 
 import jakarta.validation.constraints.NotBlank;
 import lombok.*;
-
-import java.util.Set;
-
 
 @Getter
 @Setter
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class RideMatchRequestDTO {
+public class ConfirmRideRequestDTO {
 
     @NotBlank(message = "Vehicle is required")
     private String vehicleId;
@@ -26,5 +23,6 @@ public class RideMatchRequestDTO {
 
     private String destinationLandmark;
 
-    private Set<String> excludedDriverIds;
+    @NotBlank(message = "Confirmed driver is required")
+    private String driverId;
 }

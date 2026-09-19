@@ -1,9 +1,9 @@
 package innovation.ride.umusare.service;
 
-import innovation.ride.umusare.dto.ConfirmRideRequestDTO;
-import innovation.ride.umusare.dto.RideMatchRequestDTO;
-import innovation.ride.umusare.dto.RideMatchResponseDTO;
-import innovation.ride.umusare.dto.RideResponseDTO;
+import innovation.ride.umusare.dtos.ConfirmRideRequestDTO;
+import innovation.ride.umusare.dtos.RideMatchRequestDTO;
+import innovation.ride.umusare.dtos.RideMatchResponseDTO;
+import innovation.ride.umusare.dtos.RideResponseDTO;
 
 import java.util.List;
 
