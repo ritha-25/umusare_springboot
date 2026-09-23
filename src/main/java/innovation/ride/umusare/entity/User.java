@@ -1,6 +1,7 @@
 package innovation.ride.umusare.entity;
 
 import innovation.ride.umusare.entity.enums.Gender;
+import innovation.ride.umusare.entity.enums.Role;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -31,4 +32,7 @@ public abstract class User extends Audit {
 
     @Enumerated(EnumType.STRING)
     private Gender gender;
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
+    private Role role;
 }
