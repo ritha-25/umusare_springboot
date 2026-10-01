@@ -1,9 +1,9 @@
 package innovation.ride.umusare.controller;
 
-import innovation.ride.umusare.dto.AuthResponseDTO;
-import innovation.ride.umusare.dto.LoginRequestDTO;
-import innovation.ride.umusare.dto.RegisterDriverRequestDTO;
-import innovation.ride.umusare.dto.RegisterPassengerRequestDTO;
+import innovation.ride.umusare.dtos.AuthResponseDTO;
+import innovation.ride.umusare.dtos.LoginRequestDTO;
+import innovation.ride.umusare.dtos.RegisterDriverRequestDTO;
+import innovation.ride.umusare.dtos.RegisterPassengerRequestDTO;
 import innovation.ride.umusare.service.AuthService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -27,6 +27,7 @@ public class AuthController {
 
     @PostMapping("/login")
     public AuthResponseDTO login(@RequestBody LoginRequestDTO request) {
+
         return authService.login(request);
     }
 }

@@ -1,9 +1,9 @@
 package innovation.ride.umusare.service.Impl;
 
-import innovation.ride.umusare.dto.AuthResponseDTO;
-import innovation.ride.umusare.dto.LoginRequestDTO;
-import innovation.ride.umusare.dto.RegisterDriverRequestDTO;
-import innovation.ride.umusare.dto.RegisterPassengerRequestDTO;
+import innovation.ride.umusare.dtos.AuthResponseDTO;
+import innovation.ride.umusare.dtos.LoginRequestDTO;
+import innovation.ride.umusare.dtos.RegisterDriverRequestDTO;
+import innovation.ride.umusare.dtos.RegisterPassengerRequestDTO;
 import innovation.ride.umusare.entity.Driver;
 import innovation.ride.umusare.entity.Passenger;
 import innovation.ride.umusare.entity.User;
