@@ -154,6 +154,7 @@ public class RideServiceImpl implements RideService {
                 .destinationLocation(ride.getDestinationLocation().getLocationName())
                 .vehiclePlateNumber(ride.getVehicle().getPlateNumber())
                 .driverName(ride.getDriver() != null ? ride.getDriver().getFullName() : null)
+                .passengerName(ride.getPassenger().getFullName())
                 .requestedAt(ride.getRequestedAt())
                 .build();
     }
