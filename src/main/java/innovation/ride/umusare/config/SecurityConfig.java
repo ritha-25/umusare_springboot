@@ -52,6 +52,7 @@ public class SecurityConfig {
                         .requestMatchers("/api/auth/**").permitAll()
                         .requestMatchers("/api/driver/**").hasRole("DRIVER")
                         .requestMatchers("/api/vehicles/**").hasRole("PASSENGER")
+
                         .requestMatchers("/error").permitAll()
                         .anyRequest().authenticated()
                 )
