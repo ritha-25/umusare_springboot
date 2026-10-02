@@ -24,4 +24,5 @@ public interface DriverRepository extends JpaRepository<Driver, String> {
     List<Driver> findEligibleDrivers(@Param("pickupLocationId") String pickupLocationId,
                                       @Param("vehicleType") VehicleType vehicleType,
                                       @Param("transmission") TransmissionType transmission);
+    List<Driver> findByVerifiedFalse();
 }
