@@ -18,5 +18,6 @@ public class RideResponseDTO {
     private String destinationLocation;
     private String vehiclePlateNumber;
     private String driverName;
+    private String passengerName;
     private LocalDateTime requestedAt;
 }

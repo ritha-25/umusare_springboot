@@ -15,6 +15,7 @@ import lombok.Setter;
 public abstract class User extends Audit {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.UUID)
     @Column(name = "user_id")
     private String userId;
 
