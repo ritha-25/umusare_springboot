@@ -13,4 +13,5 @@ public class AuthResponseDTO {
     private String userId;
     private String fullName;
     private Role role;
+    private Boolean verified;
 }

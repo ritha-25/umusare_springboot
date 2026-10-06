@@ -95,6 +95,10 @@ public class AuthServiceImpl implements AuthService {
 
     private AuthResponseDTO buildAuthResponse(User user) {
         String token = jwtUtil.generateToken(user.getUserId(), user.getRole().name());
-        return new AuthResponseDTO(token, user.getUserId(), user.getFullName(), user.getRole());
+        Boolean verified = null;
+        if (user instanceof Driver) {
+            verified = ((Driver) user).isVerified();
+        }
+        return new AuthResponseDTO(token, user.getUserId(), user.getFullName(), user.getRole(), verified);
     }
 }
