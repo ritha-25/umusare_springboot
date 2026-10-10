@@ -6,7 +6,6 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
-
 @Getter
 @Setter
 @Entity
@@ -18,23 +17,27 @@ public abstract class User extends Audit {
     @GeneratedValue(strategy = GenerationType.UUID)
     @Column(name = "user_id")
     private String userId;
+
     @Column(nullable = false, unique = true)
     private String email;
 
-    @Column(nullable = false, unique = true)
+    @Column(unique = true)
     private String nid;
 
     @Column(name = "full_name", nullable = false)
     private String fullName;
 
-    @Column(name = "phone_number", nullable = false, unique = true)
+    @Column(name = "phone_number", unique = true)
     private String phoneNumber;
 
-    @Column(nullable = false)
     private String password;
+
+    @Column(name = "oauth2_provider")
+    private String oauth2Provider;
 
     @Enumerated(EnumType.STRING)
     private Gender gender;
+
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     private Role role;

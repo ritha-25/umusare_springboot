@@ -91,6 +91,10 @@ public class AuthServiceImpl implements AuthService {
                 .or(() -> userRepository.findByEmail(identifier))
                 .orElseThrow(() -> new InvalidRideOperationException("Invalid credentials"));
 
+        if (user.getOauth2Provider() != null) {
+            throw new InvalidRideOperationException("This account uses Google login. Please sign in with Google.");
+        }
+
         if (!passwordEncoder.matches(request.getPassword(), user.getPassword())) {
             throw new InvalidRideOperationException("Invalid credentials");
         }
