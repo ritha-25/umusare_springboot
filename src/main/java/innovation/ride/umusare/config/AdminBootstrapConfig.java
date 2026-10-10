@@ -30,7 +30,8 @@ public class AdminBootstrapConfig {
             if (adminRepository.count() == 0) {
                 Admin admin = new Admin();
                 admin.setFullName("System Admin");
-                admin.setNid("");
+                admin.setNid("ADMIN0000000000");
+                admin.setEmail(adminPhone + "@umusare.rw");
                 admin.setPhoneNumber(adminPhone);
                 admin.setPassword(passwordEncoder.encode(adminPassword));
                 admin.setRole(Role.ADMIN);

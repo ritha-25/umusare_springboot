@@ -1,11 +1,20 @@
-HELP.md
 target/
 .mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
-!**src/main/resources/application.properties
+build/
+!**/src/main/**/build/
+!**/src/test/**/build/
 
-### STS ###
+src/main/resources/application-local.properties
+.env
+
+frontend/
+
+.idea/
+*.iws
+*.iml
+*.ipr
 .apt_generated
 .classpath
 .factorypath
@@ -13,22 +22,11 @@ target/
 .settings
 .springBeans
 .sts4-cache
-
-### IntelliJ IDEA ###
-.idea
-*.iws
-*.iml
-*.ipr
-
-### NetBeans ###
-/nbproject/private/
-/nbbuild/
-/dist/
-/nbdist/
-/.nb-gradle/
-build/
-!**/src/main/**/build/
-!**/src/test/**/build/
-
-### VS Code ###
 .vscode/
+nbproject/private/
+nbbuild/
+dist/
+nbdist/
+.nb-gradle/
+
+HELP.md

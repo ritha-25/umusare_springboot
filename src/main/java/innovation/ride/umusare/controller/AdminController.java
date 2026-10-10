@@ -14,6 +14,11 @@ public class AdminController {
 
     private final AdminService adminService;
 
+    @GetMapping("/drivers")
+    public List<DriverResponseDTO> getAllDrivers() {
+        return adminService.getAllDrivers();
+    }
+
     @GetMapping("/drivers/pending")
     public List<DriverResponseDTO> getPendingDrivers() {
         return adminService.getPendingDrivers();

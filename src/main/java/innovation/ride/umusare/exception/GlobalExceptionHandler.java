@@ -1,7 +1,9 @@
 package innovation.ride.umusare.exception;
 
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
@@ -21,6 +23,16 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(InvalidRideOperationException.class)
     public ResponseEntity<Map<String, Object>> handleInvalidOperation(InvalidRideOperationException ex) {
         return build(HttpStatus.BAD_REQUEST, ex.getMessage());
+    }
+
+    @ExceptionHandler(DataIntegrityViolationException.class)
+    public ResponseEntity<Map<String, Object>> handleConflict(DataIntegrityViolationException ex) {
+        return build(HttpStatus.BAD_REQUEST, "Duplicate or invalid data");
+    }
+
+    @ExceptionHandler(HttpMessageNotReadableException.class)
+    public ResponseEntity<Map<String, Object>> handleUnreadable(HttpMessageNotReadableException ex) {
+        return build(HttpStatus.BAD_REQUEST, "Invalid request body");
     }
 
     @ExceptionHandler(MethodArgumentNotValidException.class)

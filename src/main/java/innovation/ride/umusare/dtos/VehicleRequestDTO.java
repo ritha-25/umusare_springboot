@@ -21,7 +21,7 @@ public class VehicleRequestDTO {
 
     private String color;
 
-    @NotNull(message = "Transmission irequired")
+    @NotNull(message = "Transmission is required")
     private TransmissionType transmission;
 
     @NotNull(message = "Vehicle type is required")

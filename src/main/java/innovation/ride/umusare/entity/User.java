@@ -18,6 +18,8 @@ public abstract class User extends Audit {
     @GeneratedValue(strategy = GenerationType.UUID)
     @Column(name = "user_id")
     private String userId;
+    @Column(nullable = false, unique = true)
+    private String email;
 
     @Column(nullable = false, unique = true)
     private String nid;

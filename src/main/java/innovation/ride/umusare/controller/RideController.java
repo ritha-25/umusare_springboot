@@ -26,14 +26,14 @@ public class RideController {
     @PostMapping("/find-match")
     public ResponseEntity<RideMatchResponseDTO> findMatch(
             @AuthenticationPrincipal UserPrincipal currentUser,
-            @RequestBody RideMatchRequestDTO request) {
+            @Valid @RequestBody RideMatchRequestDTO request) {
         return ResponseEntity.ok(rideService.findMatch(currentUser.getUserId(), request));
     }
 
     @PostMapping
     public ResponseEntity<RideResponseDTO> confirmRide(
             @AuthenticationPrincipal UserPrincipal currentUser,
-            @RequestBody ConfirmRideRequestDTO request) {
+            @Valid @RequestBody ConfirmRideRequestDTO request) {
         return ResponseEntity.status(HttpStatus.CREATED)
                 .body(rideService.confirmRide(currentUser.getUserId(), request));
     }

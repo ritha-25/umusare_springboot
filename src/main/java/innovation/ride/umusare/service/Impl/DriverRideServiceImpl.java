@@ -44,7 +44,9 @@ public class DriverRideServiceImpl implements DriverRideService {
 
     @Override
     public List<RideResponseDTO> getIncomingRequests(String driverId) {
-        return rideRepository.findByDriver_UserIdAndStatus(driverId, RideStatus.REQUESTED)
+        return rideRepository.findByDriver_UserIdAndStatusInOrderByRequestedAtDesc(
+                        driverId,
+                        List.of(RideStatus.REQUESTED, RideStatus.ACCEPTED, RideStatus.IN_PROGRESS))
                 .stream()
                 .map(this::toDTO)
                 .toList();

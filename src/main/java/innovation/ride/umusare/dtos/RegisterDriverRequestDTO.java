@@ -11,6 +11,7 @@ import java.time.LocalDate;
 public class RegisterDriverRequestDTO {
     private String fullName;
     private String nid;
+    private String email;
     private String phoneNumber;
     private String password;
     private Gender gender;

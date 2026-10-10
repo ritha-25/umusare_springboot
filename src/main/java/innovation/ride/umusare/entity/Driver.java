@@ -35,7 +35,7 @@ public class Driver extends User {
     )
     private Set<Location> serviceAreas = new HashSet<>();
 
-    @OneToMany(mappedBy = "driver", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "driver", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<DriverVehicleSkill> vehicleSkills = new ArrayList<>();
 
 
