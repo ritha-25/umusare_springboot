@@ -24,7 +24,7 @@ public class VehicleController {
     @PostMapping
     public ResponseEntity<VehicleResponseDTO> addVehicle(
             @AuthenticationPrincipal UserPrincipal currentUser,
-            @RequestBody VehicleRequestDTO request) {
+            @Valid @RequestBody VehicleRequestDTO request) {
         return ResponseEntity.status(HttpStatus.CREATED)
                 .body(vehicleService.registerVehicle(currentUser.getUserId(), request));
     }
@@ -38,7 +38,7 @@ public class VehicleController {
     public ResponseEntity<VehicleResponseDTO> updateVehicle(
             @AuthenticationPrincipal UserPrincipal currentUser,
             @PathVariable String vehicleId,
-            @RequestBody VehicleRequestDTO request) {
+            @Valid @RequestBody VehicleRequestDTO request) {
         return ResponseEntity.ok(vehicleService.updateVehicle(currentUser.getUserId(), vehicleId, request));
     }
 

@@ -8,6 +8,7 @@ import innovation.ride.umusare.repository.LocationRepository;
 import innovation.ride.umusare.service.LocationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -35,12 +36,14 @@ public class LocationServiceImpl implements LocationService {
     }
 
     @Override
+    @Transactional
     public List<LocationResponseDTO> getAll() {
         List<Location> locations = locationRepository.findAll();
         return locations.stream().map(this::toDTO).toList();
     }
 
     @Override
+    @Transactional
     public LocationResponseDTO getById(String locationId) {
         Location location = getEntity(locationId);
         return toDTO(location);

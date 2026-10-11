@@ -2,6 +2,8 @@ package innovation.ride.umusare.controller;
 
 import innovation.ride.umusare.dtos.AvailabilityRequestDTO;
 import innovation.ride.umusare.dtos.CompleteRideRequestDTO;
+import innovation.ride.umusare.dtos.DriverProfileRequestDTO;
+import innovation.ride.umusare.dtos.DriverProfileResponseDTO;
 import innovation.ride.umusare.dtos.RideResponseDTO;
 import innovation.ride.umusare.dtos.StartRideRequestDTO;
 import innovation.ride.umusare.security.UserPrincipal;
@@ -18,6 +20,18 @@ import java.util.List;
 public class DriverController {
 
     private final DriverRideService driverRideService;
+
+    @GetMapping("/profile")
+    public DriverProfileResponseDTO getProfile(@AuthenticationPrincipal UserPrincipal currentUser) {
+        return driverRideService.getProfile(currentUser.getUserId());
+    }
+
+    @PutMapping("/profile")
+    public DriverProfileResponseDTO updateProfile(
+            @AuthenticationPrincipal UserPrincipal currentUser,
+            @RequestBody DriverProfileRequestDTO request) {
+        return driverRideService.updateProfile(currentUser.getUserId(), request);
+    }
 
     @PutMapping("/availability")
     public void setAvailability(

@@ -8,7 +8,9 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
-@Table(name = "ride_distance_pricing")
+@Table(name = "ride_distance_pricing", uniqueConstraints = {
+        @UniqueConstraint(columnNames = {"from_location_id", "to_location_id", "vehicle_type"})
+})
 public class RideDistancePricing extends Audit {
 
     @Id

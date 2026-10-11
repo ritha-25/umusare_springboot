@@ -8,6 +8,7 @@ import innovation.ride.umusare.exception.InvalidRideOperationException;
 import innovation.ride.umusare.exception.ResourceNotFoundException;
 import innovation.ride.umusare.repository.*;
 import innovation.ride.umusare.service.DriverMatchingService;
+import innovation.ride.umusare.service.RideNotificationPublisher;
 import innovation.ride.umusare.service.RideService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -30,6 +31,7 @@ public class RideServiceImpl implements RideService {
     private final RideDistancePricingRepository pricingRepository;
     private final DriverRepository driverRepository;
     private final DriverMatchingService matchingService;
+    private final RideNotificationPublisher rideNotificationPublisher;
 
     @Override
     public RideMatchResponseDTO findMatch(String passengerId, RideMatchRequestDTO request) {
@@ -81,7 +83,15 @@ public class RideServiceImpl implements RideService {
         ride.setRequestedAt(LocalDateTime.now());
         ride.setPrice(price);
 
-        return toRideResponseDTO(rideRepository.save(ride));
+        Ride saved = rideRepository.save(ride);
+        rideNotificationPublisher.publish(new RideEventMessage(
+                saved.getRideId(),
+                "RIDE_REQUESTED",
+                driver.getEmail(),
+                driver.getFullName(),
+                "New ride request from " + passenger.getFullName()
+        ));
+        return toRideResponseDTO(saved);
     }
 
     @Override
@@ -109,7 +119,7 @@ public class RideServiceImpl implements RideService {
         RideDistancePricing pricing = pricingRepository
                 .findByFromLocationAndToLocationAndVehicleTypeAndActiveTrue(pickup, destination, vehicleType)
                 .orElseThrow(() -> new ResourceNotFoundException(
-                        "No active pricing rule found for this route and vehicle type."));
+                        "No pricing rule found for this route and vehicle type"));
         return pricing.getPrice();
     }
 

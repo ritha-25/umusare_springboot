@@ -10,5 +10,6 @@ public interface RideRepository extends JpaRepository<Ride, String> {
 
     List<Ride> findByPassenger_UserIdOrderByRequestedAtDesc(String passengerId);
     List<Ride> findByDriver_UserIdAndStatus(String driverId, RideStatus status);
+    List<Ride> findByDriver_UserIdAndStatusInOrderByRequestedAtDesc(String driverId, List<RideStatus> statuses);
     List<Ride> findByDriver_UserIdOrderByRequestedAtDesc(String driverId);
 }
